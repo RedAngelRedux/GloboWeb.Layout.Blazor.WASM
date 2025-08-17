@@ -1,25 +1,28 @@
 :root {
-    --gw-title-font: 'Bebas Neue', sans-serif;
-    --gw-body-font: 'Montserrat', sans-serif;
+
+    --cf-title-font: 'Bebas Neue', sans-serif;
+    --cf-body-font: 'Montserrat', sans-serif;
     
-    --gw-dark-color: #212121;
-    --gw-light-color: #DEEEFB;
-    --gw-font-size:  1.1rem;
+    --cf-dark-color: var(--cf-theme-800);
+    --cf-light-color: var(--cf-theme-400);
+
+    --cf-font-size:  1.1rem;
+    --cf-title-color: var(--cf-dark-color);
 }
 
 html, body {
-    font-family: var(--gw-body-font);
-    font-size:  var(--gw-font-size);
+    font-family: var(--cf-body-font);
+    font-size:  var(--cf-font-size);
     height: 100%;
     min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--gw-title-font);
+    font-family: var(--cf-title-font);
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: var(--gw-title-font);
+    font-family: var(--cf-title-font);
 }
 
 #app {
