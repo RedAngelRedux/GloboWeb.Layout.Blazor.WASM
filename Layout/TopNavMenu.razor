@@ -1,8 +1,13 @@
-﻿<nav class="navbar navbar-expand-lg navStyle" data-bs-theme="dark">
+﻿@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<nav class="navbar navbar-expand-lg navStyle" data-bs-theme="dark">
     <div class="container-xxl">
+
         <a href="/" class="me-3">
             <img src="/img/brand/MagicCodeSquareLogo.png" height="40" />
         </a>
+
         <button class="navbar-toggler" type="button" 
             data-bs-toggle="collapse" data-bs-target="#navbarContent" 
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
@@ -66,3 +71,34 @@
         </div>
     </div>
 </nav>
+
+@code {
+
+    private IDisposable? locationChangedHandler;
+
+    protected override void OnInitialized()
+    {
+        // Note:  
+        // RegisteringLocationChangingHandler (.NET 8+) is used to collapse the menu when navigating to a new page.
+        // This is useful for mobile devices where the menu should close after a selection.
+        // .NET 7 and earlier would use Navigation.LocationChanged event.
+        locationChangedHandler = Navigation.RegisterLocationChangingHandler(OnLocationChanging);
+    }
+
+    public void Dispose()
+    {
+        locationChangedHandler?.Dispose();
+    }
+
+    // Alternativly, I could have set onclick="CollapseMenu" on the button element.
+    // This method is more comprehensive and allows for more control.
+    private async ValueTask OnLocationChanging(LocationChangingContext context)
+    {
+        await CollapseMenu();
+    }
+
+    private async Task CollapseMenu()
+    {
+        await JS.InvokeVoidAsync("collapseNavbar");
+    }
+}
