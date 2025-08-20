@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Sammy Nava",
+    "classifications": [
+        "Web",
+        "Blazor",
+        "WebAssembly"
+    ],
+    "identity": "SammyNava.BlazorWasmLayout",
+    "name": "Blazor WebAssembly With Branded Layout",
+    "shortName": "BlazorWasmLayout",
+    "sourceName": "GloboWeb.Layout.Blazor.WASM",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "guids": [
+        "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC",
+        "027A8685-6D35-471A-94F9-D14D51191B66",
+        "E98BF82F-249E-466F-95AE-2A104160D887"
+    ],
+    "preferNameDirectory": true,
+    "sources": [
+        {
+            "exclude": [
+                ".git/**",
+                ".github/**",
+                ".gitignore",
+                ".gitattributes",
+                ".template.config/**",
+                ".vs/**",
+                "**/bin/**",
+                "**/obj/**",
+                "README.md"
+            ]
+        }
+    ]
+}
